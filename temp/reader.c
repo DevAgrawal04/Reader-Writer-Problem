@@ -1,20 +1,24 @@
-#include <stdio.h>
-#include <sys/types.h>
+#include<stdio.h>
+#include<sys/types.h>
 #include<sys/ipc.h>
 #include<sys/shm.h>
 #include<string.h>
-Const int SHMSZ=1000;
-int main(void){
-    int sid;
+const int SHMSZ=100;
+int main(void)
+{
+    char c;
+    int shmid;
     key_t key;
-    char *sbuff;
-    
+    char *shm, *s;
     /*shared memory id*/
-    if((sid=shmget(key,SHMSZ,0)) == -1){
-        printf("shmget error \n");
+    if((shmid=shmget(4678,SHMSZ, 0)) == -1)
+    {
+        printf("shmget error");
     }
-    if((sbuff= (char*)shmat (sid, NULL, 0)) == (VOID*) -1){
-        printf("shmat error \n");
+    if((shm=shmat(shmid,NULL, 0)) == )
+    {
+        printf("shmat error");
     }
-    printf("MESSAGE FROM P1 IS =%s", sbuff);
+    printf("message read is %s",shm);
+    shmdt(shm);
 }
