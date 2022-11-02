@@ -28,6 +28,7 @@ int main(void)
 	}
 	
 	char *s = shm;	
+	if((char)(*s)!='1') printf("Waiting for writer \n");
 	while((char)(*s)!='1')
 		{
 			//do nothing
@@ -40,7 +41,7 @@ int main(void)
 		char c = *s;
 		putchar(c);
 	}    	
-	*shm='0';  
+	*shm='0';  //set turn to writer
 	printf("\n");
 	return 0;
 }
