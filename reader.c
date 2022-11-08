@@ -11,10 +11,10 @@ int main(void)
 
 	key_t key = 6000;
 	//Obtaining Access to shared memory
-	int shmid =  shmget(key, 27, 0666);
+	int shmid =  shmget(key, 27, 0666); //IPC_CREAT is not used. Reader must only read if shared memory exists.
 	if(shmid<0)
 	{
-		perror("Reader Error: Access Problem");
+		perror("Reader Error: Access Problem"); //perror() prints ": Error msg"
 		return 0;
 	}
  

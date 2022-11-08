@@ -2,8 +2,8 @@
 // PROCESS 0
 
 #include<stdio.h>
-#include <sys/ipc.h>
-#include <sys/shm.h>
+#include <sys/ipc.h> //inter process communication
+#include <sys/shm.h> //shared memory
 #include<string.h>
 int main(void)
 {
@@ -55,7 +55,7 @@ int main(void)
 				*s++ = c;
 			}
 			*s = '\0';	
-			printf("\n\nBusy Waiting \n");
+			printf("\nTurn set to reader \n\n");
 			*shm='1'; //set turn to reader
 			count++;
 	}
