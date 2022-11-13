@@ -124,11 +124,11 @@ while (true) {
  ...
  /* reading is performed */ 
  ... 
- wait(mutex);
+ wait(r_mutex);
  read count--;
  if (read_count == 0) /* last reader */
  signal(rw_mutex); 
- signal(mutex); 
+ signal(r_mutex); 
  } 
 ```
 
