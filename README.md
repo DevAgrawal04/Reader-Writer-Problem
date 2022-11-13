@@ -99,7 +99,7 @@ This ensures bounded waiting as no process can re-enter immediately after having
 For this solution, 2 mutexes/flags would be needed.
  _r_mutex_  and _rw_mutex_ 
 
-### i) Reader First Problem
+### i) First Reader Writer Problem
 - No writer is allowed to access the critical section as long as there's a reader in the system. This can lead to starvation of the writer process. 
 - The implementation for that would be as follows:
 ```c
